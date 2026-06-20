@@ -1,0 +1,149 @@
+# Nohemia Widgets
+
+**[English](README.md) · [Français](README.fr.md) · [Português](README.pt.md) · [Español](README.es.md) · [Italiano](README.it.md) · [Deutsch](README.de.md) · [Polski](README.pl.md) · [한국어](README.ko.md) · [日本語](README.ja.md) · [Türkçe](README.tr.md)**
+
+**Widgets gratuitos e integrables de astrología y luna para cualquier web.** Datos de efemérides reales, actualizados cada
+noche, sin cuenta, sin rastreo y sin necesidad de JavaScript. Pega una línea de HTML y listo.
+
+Creado y mantenido por [Jade Nohemia](https://nohemia.com/fr/auteur/jade/) en **[nohemia.com](https://nohemia.com/fr/)**.
+Galería y vistas previas en directo: **[nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)**.
+
+> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
+> soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
+
+---
+
+## Inicio rápido (HTML sencillo)
+
+Pega esto en cualquier parte de tu página. Funciona en cualquier sitio que admita HTML (WordPress, Wix, Squarespace,
+Webflow, Ghost, Shopify, una página estática...).
+
+```html
+<iframe src="https://nohemia.com/fr/widgets/lune/clair-m/"
+        width="300" height="210" loading="lazy"
+        title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
+<p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
+  <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+</p>
+```
+
+Esa pequeña línea de crédito es el único agradecimiento que te pedimos. Es opcional: puedes editarla o quitarla, y el
+widget seguirá funcionando exactamente igual.
+
+---
+
+## Widgets
+
+| Widget | `type` | Descripción | Tamaños |
+|--------|--------|-------------|-------|
+| La luna hoy | `lune` | Fase, signo y próxima luna llena | `s` (220x140), `m` (300x210) |
+| El cielo hoy | `ciel` | Sol y Luna por signo, fase actual | `s` (230x150), `m` (300x200) |
+
+Cada `type` viene en dos temas (`clair` / `sombre`) y dos tamaños (`s` / `m`). El patrón de la URL es:
+
+```
+https://nohemia.com/fr/widgets/{type}/{theme}-{size}/
+```
+
+Pronto llegarán más widgets: cuenta atrás para la luna llena, horóscopo diario por signo y retrógrados en curso.
+
+---
+
+## Ejemplos por framework
+
+### WordPress
+Añade un bloque **HTML personalizado** (o usa la pestaña *Texto* del editor clásico) y pega el fragmento de Inicio rápido.
+No hace falta ningún plugin.
+
+### React / Next.js
+```jsx
+export function MoonWidget() {
+  return (
+    <>
+      <iframe
+        src="https://nohemia.com/fr/widgets/lune/clair-m/"
+        width={300} height={210} loading="lazy"
+        title="Calendrier lunaire"
+        style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
+      />
+      <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
+        <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+      </p>
+    </>
+  )
+}
+```
+
+### Vue
+```vue
+<template>
+  <iframe src="https://nohemia.com/fr/widgets/ciel/sombre-m/"
+          width="300" height="200" loading="lazy" title="Le ciel du jour"
+          style="border:0;border-radius:12px;max-width:100%" />
+</template>
+```
+
+### Webflow / Squarespace
+Coloca un elemento **Embed** (Webflow) o un bloque **Code** (Squarespace) y pega el fragmento de Inicio rápido.
+
+---
+
+## Web component (npm)
+
+Si prefieres una etiqueta antes que un iframe, instala el pequeño web component (un envoltorio ligero y sin dependencias):
+
+```bash
+npm i @nohemia/widgets
+```
+
+```html
+<script type="module">import '@nohemia/widgets'</script>
+
+<nohemia-widget type="lune" theme="clair" size="m"></nohemia-widget>
+<nohemia-widget type="ciel" theme="sombre" size="s"></nohemia-widget>
+```
+
+O cárgalo directamente desde un CDN, sin paso de compilación:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@nohemia/widgets"></script>
+<nohemia-widget type="lune"></nohemia-widget>
+```
+
+Atributos: `type` (`lune` | `ciel`), `theme` (`clair` | `sombre`), `size` (`s` | `m`). El componente
+se limita a renderizar el iframe oficial, así que los datos y el estilo se mantienen sincronizados con nohemia.com.
+
+---
+
+## Datos y actualización
+
+Nada está escrito a mano. Las fases, los signos y las horas provienen de una efeméride astronómica real
+([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculada cada noche. Las horas se
+indican en Europe/Paris, al minuto. Los mismos datos alimentan el
+[calendario lunar completo en nohemia.com](https://nohemia.com/fr/lune/calendrier-pleines-lunes/).
+
+También puedes leer el JSON en bruto si quieres crear el tuyo propio:
+`https://nohemia.com/widgets/lune/data.json` (la fase de hoy, la próxima luna llena y luna nueva, y las diez próximas lunaciones).
+
+---
+
+## Por qué estos widgets
+
+- **Gratis, para siempre.** Sin cuenta, sin clave de API, sin límite de uso.
+- **Ligeros y seguros.** Un iframe aislado: nunca lee tu página, no instala ninguna cookie y no ralentiza tu sitio.
+- **Diseño editorial.** Cálido, sobrio, al estilo Nohemia. Temas claro y oscuro.
+- **Datos honestos y reales.** Una efeméride genuina, no una tabla escrita a mano.
+- **Respetuosos con la privacidad.** Cero rastreo, conformes con el RGPD por diseño.
+
+---
+
+## Enlaces
+
+- Sitio: [nohemia.com](https://nohemia.com/fr/) · Galería de widgets: [nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)
+- Autora: [Jade Nohemia](https://nohemia.com/fr/auteur/jade/)
+- Incidencias e ideas: [github.com/jadenohemia/nohemia-widgets/issues](https://github.com/jadenohemia/nohemia-widgets/issues)
+
+## Licencia
+
+[MIT](./LICENSE) © Jade Nohemia / Nohemia. Úsalos donde quieras, incluso con fines comerciales. Un enlace de vuelta a
+[nohemia.com](https://nohemia.com/fr/) se agradece, pero nunca es obligatorio.

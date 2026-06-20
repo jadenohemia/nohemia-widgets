@@ -1,13 +1,12 @@
 # Nohemia Widgets
 
+**[English](README.md) · [Français](README.fr.md) · [Português](README.pt.md) · [Español](README.es.md) · [Italiano](README.it.md) · [Deutsch](README.de.md) · [Polski](README.pl.md) · [한국어](README.ko.md) · [日本語](README.ja.md) · [Türkçe](README.tr.md)**
+
 **Free, embeddable astrology & moon widgets for any website.** Real ephemeris data, refreshed every
 night, no account, no tracking, no JavaScript required. Drop one line of HTML and you are done.
 
 Built and maintained by [Jade Nohemia](https://nohemia.com/fr/auteur/jade/) at **[nohemia.com](https://nohemia.com/fr/)**.
 Gallery and live previews: **[nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)**.
-
-> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
-> soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
 
 ---
 
