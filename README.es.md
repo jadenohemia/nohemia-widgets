@@ -5,8 +5,8 @@
 **Widgets gratuitos e integrables de astrología y luna para cualquier web.** Datos de efemérides reales, actualizados cada
 noche, sin cuenta, sin rastreo y sin necesidad de JavaScript. Pega una línea de HTML y listo.
 
-Creado y mantenido por [Jade Nohemia](https://nohemia.com/en/auteur/jade/) en **[nohemia.com](https://nohemia.com/en/)**.
-Galería y vistas previas en directo: **[nohemia.com/en/widgets](https://nohemia.com/en/widgets/)**.
+Creado y mantenido por [Jade Nohemia](https://nohemia.com/es/auteur/jade/) en **[nohemia.com](https://nohemia.com/es/)**.
+Galería y vistas previas en directo: **[nohemia.com/es/widgets](https://nohemia.com/es/widgets/)**.
 
 > Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
 > soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
@@ -19,11 +19,11 @@ Pega esto en cualquier parte de tu página. Funciona en cualquier sitio que admi
 Webflow, Ghost, Shopify, una página estática...).
 
 ```html
-<iframe src="https://nohemia.com/en/widgets/lune/clair-m/"
+<iframe src="https://nohemia.com/es/widgets/luna/claro-m/"
         width="300" height="210" loading="lazy"
         title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/es/" rel="nofollow">Calendrier lunaire par Nohemia</a>
 </p>
 ```
 
@@ -36,13 +36,13 @@ widget seguirá funcionando exactamente igual.
 
 | Widget | `type` | Descripción | Tamaños |
 |--------|--------|-------------|-------|
-| La luna hoy | `lune` | Fase, signo y próxima luna llena | `s` (220x140), `m` (300x210) |
-| El cielo hoy | `ciel` | Sol y Luna por signo, fase actual | `s` (230x150), `m` (300x200) |
+| La luna hoy | `moon` | Fase, signo y próxima luna llena | `s` (220x140), `m` (300x210) |
+| El cielo hoy | `sky` | Sol y Luna por signo, fase actual | `s` (230x150), `m` (300x200) |
 
-Cada `type` viene en dos temas (`clair` / `sombre`) y dos tamaños (`s` / `m`). El patrón de la URL es:
+Cada `type` viene en dos temas (`light` / `dark`) y dos tamaños (`s` / `m`). El patrón de la URL es:
 
 ```
-https://nohemia.com/en/widgets/{type}/{theme}-{size}/
+https://nohemia.com/es/widgets/{type}/{theme}-{size}/
 ```
 
 Pronto llegarán más widgets: cuenta atrás para la luna llena, horóscopo diario por signo y retrógrados en curso.
@@ -61,13 +61,13 @@ export function MoonWidget() {
   return (
     <>
       <iframe
-        src="https://nohemia.com/en/widgets/lune/clair-m/"
+        src="https://nohemia.com/es/widgets/luna/claro-m/"
         width={300} height={210} loading="lazy"
         title="Calendrier lunaire"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/es/" rel="nofollow">Calendrier lunaire par Nohemia</a>
       </p>
     </>
   )
@@ -77,7 +77,7 @@ export function MoonWidget() {
 ### Vue
 ```vue
 <template>
-  <iframe src="https://nohemia.com/en/widgets/ciel/sombre-m/"
+  <iframe src="https://nohemia.com/es/widgets/cielo/oscuro-m/"
           width="300" height="200" loading="lazy" title="Le ciel du jour"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
@@ -99,18 +99,18 @@ npm i @nohemia/widgets
 ```html
 <script type="module">import '@nohemia/widgets'</script>
 
-<nohemia-widget type="lune" theme="clair" size="m"></nohemia-widget>
-<nohemia-widget type="ciel" theme="sombre" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="es" theme="light" size="m"></nohemia-widget>
+<nohemia-widget type="sky" locale="es" theme="dark" size="s"></nohemia-widget>
 ```
 
 O cárgalo directamente desde un CDN, sin paso de compilación:
 
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/npm/@nohemia/widgets"></script>
-<nohemia-widget type="lune"></nohemia-widget>
+<nohemia-widget type="moon" locale="es"></nohemia-widget>
 ```
 
-Atributos: `type` (`lune` | `ciel`), `theme` (`clair` | `sombre`), `size` (`s` | `m`). El componente
+Atributos: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). El componente
 se limita a renderizar el iframe oficial, así que los datos y el estilo se mantienen sincronizados con nohemia.com.
 
 ---
@@ -120,7 +120,7 @@ se limita a renderizar el iframe oficial, así que los datos y el estilo se mant
 Nada está escrito a mano. Las fases, los signos y las horas provienen de una efeméride astronómica real
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculada cada noche. Las horas se
 indican en Europe/Paris, al minuto. Los mismos datos alimentan el
-[calendario lunar completo en nohemia.com](https://nohemia.com/en/lune/calendrier-pleines-lunes/).
+[calendario lunar completo en nohemia.com](https://nohemia.com/es/calendrier-pleines-lunes/).
 
 También puedes leer el JSON en bruto si quieres crear el tuyo propio:
 `https://nohemia.com/widgets/lune/data.json` (la fase de hoy, la próxima luna llena y luna nueva, y las diez próximas lunaciones).
@@ -139,11 +139,11 @@ También puedes leer el JSON en bruto si quieres crear el tuyo propio:
 
 ## Enlaces
 
-- Sitio: [nohemia.com](https://nohemia.com/en/) · Galería de widgets: [nohemia.com/en/widgets](https://nohemia.com/en/widgets/)
-- Autora: [Jade Nohemia](https://nohemia.com/en/auteur/jade/)
+- Sitio: [nohemia.com](https://nohemia.com/es/) · Galería de widgets: [nohemia.com/es/widgets](https://nohemia.com/es/widgets/)
+- Autora: [Jade Nohemia](https://nohemia.com/es/auteur/jade/)
 - Incidencias e ideas: [github.com/jadenohemia/nohemia-widgets/issues](https://github.com/jadenohemia/nohemia-widgets/issues)
 
 ## Licencia
 
 [MIT](./LICENSE) © Jade Nohemia / Nohemia. Úsalos donde quieras, incluso con fines comerciales. Un enlace de vuelta a
-[nohemia.com](https://nohemia.com/en/) se agradece, pero nunca es obligatorio.
+[nohemia.com](https://nohemia.com/es/) se agradece, pero nunca es obligatorio.

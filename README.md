@@ -16,11 +16,11 @@ Paste this anywhere in your page. It works on any site that accepts HTML (WordPr
 Webflow, Ghost, Shopify, a static page...).
 
 ```html
-<iframe src="https://nohemia.com/en/widgets/lune/clair-m/"
+<iframe src="https://nohemia.com/en/widgets/moon/light-m/"
         width="300" height="210" loading="lazy"
         title="Lunar calendar" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/en/lune/" rel="nofollow">Lunar calendar by Nohemia</a>
+  <a href="https://nohemia.com/en/" rel="nofollow">Lunar calendar by Nohemia</a>
 </p>
 ```
 
@@ -33,16 +33,38 @@ widget still works exactly the same.
 
 | Widget | `type` | Description | Sizes |
 |--------|--------|-------------|-------|
-| Moon today | `lune` | Phase, sign and next full moon | `s` (220x140), `m` (300x210) |
-| Sky today | `ciel` | Sun and Moon by sign, current phase | `s` (230x150), `m` (300x200) |
+| Moon today | `moon` | Phase, sign and next full moon | `s` (220x140), `m` (300x210) |
+| Sky today | `sky` | Sun and Moon by sign, current phase | `s` (230x150), `m` (300x200) |
 
-Each `type` ships in two themes (`clair` / `sombre`) and two sizes (`s` / `m`). The URL pattern is:
+Each `type` ships in two themes (`light` / `dark`) and two sizes (`s` / `m`). The URL pattern is:
 
 ```
 https://nohemia.com/en/widgets/{type}/{theme}-{size}/
 ```
 
 More widgets are on the way: full-moon countdown, daily horoscope by sign, retrogrades in progress.
+
+### Languages
+
+English is the default. The same widgets exist in 10 languages, each at a **localized URL** — the
+slug is the word people actually search (a German searches *Mond*, not *moon*). Pass `locale` to the
+web component, or build the URL directly. You always use the canonical English keys (`moon`, `sky`,
+`light`, `dark`); the slug and theme word in the URL are localized for you.
+
+| Locale | `moon` → | `sky` → | `light` → | `dark` → |
+|--------|----------|---------|-----------|----------|
+| `en` | moon | sky | light | dark |
+| `fr` | lune | ciel | clair | sombre |
+| `pt` | lua | ceu | claro | escuro |
+| `es` | luna | cielo | claro | oscuro |
+| `it` | luna | cielo | chiaro | scuro |
+| `de` | mond | himmel | hell | dunkel |
+| `pl` | ksiezyc | niebo | jasny | ciemny |
+| `ko` | dal | haneul | light | dark |
+| `ja` | tsuki | sora | light | dark |
+| `tr` | ay | gokyuzu | acik | koyu |
+
+For example: `https://nohemia.com/de/widgets/mond/hell-m/`, or `<nohemia-widget type="moon" locale="de">`.
 
 ---
 
@@ -58,13 +80,13 @@ export function MoonWidget() {
   return (
     <>
       <iframe
-        src="https://nohemia.com/en/widgets/lune/clair-m/"
+        src="https://nohemia.com/en/widgets/moon/light-m/"
         width={300} height={210} loading="lazy"
         title="Lunar calendar"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/en/lune/" rel="nofollow">Lunar calendar by Nohemia</a>
+        <a href="https://nohemia.com/en/" rel="nofollow">Lunar calendar by Nohemia</a>
       </p>
     </>
   )
@@ -74,8 +96,8 @@ export function MoonWidget() {
 ### Vue
 ```vue
 <template>
-  <iframe src="https://nohemia.com/en/widgets/ciel/sombre-m/"
-          width="300" height="200" loading="lazy" title="Le ciel du jour"
+  <iframe src="https://nohemia.com/en/widgets/sky/dark-m/"
+          width="300" height="200" loading="lazy" title="Today's sky"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
 ```
@@ -96,19 +118,21 @@ npm i @nohemia/widgets
 ```html
 <script type="module">import '@nohemia/widgets'</script>
 
-<nohemia-widget type="lune" theme="clair" size="m"></nohemia-widget>
-<nohemia-widget type="ciel" theme="sombre" size="s"></nohemia-widget>
+<nohemia-widget type="moon" theme="light" size="m"></nohemia-widget>
+<nohemia-widget type="sky" theme="dark" size="s"></nohemia-widget>
 ```
 
 Or load it straight from a CDN, no build step:
 
 ```html
 <script type="module" src="https://cdn.jsdelivr.net/npm/@nohemia/widgets"></script>
-<nohemia-widget type="lune"></nohemia-widget>
+<nohemia-widget type="moon"></nohemia-widget>
 ```
 
-Attributes: `type` (`lune` | `ciel`), `theme` (`clair` | `sombre`), `size` (`s` | `m`). The component
-just renders the official iframe, so the data and styling stay in sync with nohemia.com.
+Attributes: `type` (`moon` | `sky`), `locale` (`en` by default — see the Languages table), `theme`
+(`light` | `dark`), `size` (`s` | `m`). You pass the canonical English keys; the component maps them
+to the localized URL. It just renders the official iframe, so the data and styling stay in sync with
+nohemia.com.
 
 ---
 
@@ -117,7 +141,7 @@ just renders the official iframe, so the data and styling stay in sync with nohe
 Nothing is typed by hand. Phases, signs and times come from a real astronomical ephemeris
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recomputed every night. Times are
 given in Europe/Paris, to the minute. The same data powers the full
-[lunar calendar on nohemia.com](https://nohemia.com/en/lune/calendrier-pleines-lunes/).
+[lunar calendar on nohemia.com](https://nohemia.com/en/calendrier-pleines-lunes/).
 
 You can also read the raw JSON if you want to build your own:
 `https://nohemia.com/widgets/lune/data.json` (today's phase, next full and new moon, the ten upcoming lunations).
