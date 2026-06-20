@@ -1,0 +1,43 @@
+{
+  "name": "@nohemia/widgets",
+  "version": "0.1.0",
+  "description": "Free, embeddable astrology & moon widgets. Real ephemeris, refreshed nightly, no account, no tracking.",
+  "type": "module",
+  "main": "./src/nohemia-widget.js",
+  "module": "./src/nohemia-widget.js",
+  "exports": {
+    ".": "./src/nohemia-widget.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "./src/nohemia-widget.js"
+  ],
+  "keywords": [
+    "astrology",
+    "moon-phase",
+    "lunar-calendar",
+    "moon-widget",
+    "horoscope",
+    "widget",
+    "embed",
+    "iframe",
+    "web-component",
+    "astronomy",
+    "ephemeris",
+    "nohemia"
+  ],
+  "homepage": "https://nohemia.com/fr/widgets/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadenohemia/nohemia-widgets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jadenohemia/nohemia-widgets/issues"
+  },
+  "author": "Jade Nohemia (https://nohemia.com)",
+  "license": "MIT"
+}
