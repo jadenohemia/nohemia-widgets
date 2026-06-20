@@ -4,8 +4,8 @@
 
 **Kostenlose, einbettbare Astrologie- und Mond-Widgets für jede Website.** Echte Ephemeriden-Daten, jede Nacht aktualisiert, ohne Konto, ohne Tracking, ohne JavaScript. Eine einzige HTML-Zeile einfügen, fertig.
 
-Erstellt und gepflegt von [Jade Nohemia](https://nohemia.com/fr/auteur/jade/) auf **[nohemia.com](https://nohemia.com/fr/)**.
-Galerie und Live-Vorschauen: **[nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)**.
+Erstellt und gepflegt von [Jade Nohemia](https://nohemia.com/en/auteur/jade/) auf **[nohemia.com](https://nohemia.com/en/)**.
+Galerie und Live-Vorschauen: **[nohemia.com/en/widgets](https://nohemia.com/en/widgets/)**.
 
 > Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
 > soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
@@ -17,11 +17,11 @@ Galerie und Live-Vorschauen: **[nohemia.com/fr/widgets](https://nohemia.com/fr/w
 Füge das einfach irgendwo auf deiner Seite ein. Es funktioniert auf jeder Website, die HTML akzeptiert (WordPress, Wix, Squarespace, Webflow, Ghost, Shopify, eine statische Seite ...).
 
 ```html
-<iframe src="https://nohemia.com/fr/widgets/lune/clair-m/"
+<iframe src="https://nohemia.com/en/widgets/lune/clair-m/"
         width="300" height="210" loading="lazy"
         title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
 </p>
 ```
 
@@ -39,7 +39,7 @@ Die kleine Credit-Zeile ist das einzige Dankeschön, um das wir bitten. Sie ist 
 Jeder `type` kommt in zwei Themes (`clair` / `sombre`) und zwei Größen (`s` / `m`). Das URL-Schema lautet:
 
 ```
-https://nohemia.com/fr/widgets/{type}/{theme}-{size}/
+https://nohemia.com/en/widgets/{type}/{theme}-{size}/
 ```
 
 Weitere Widgets sind in Arbeit: Countdown bis zum Vollmond, Tageshoroskop nach Tierkreiszeichen, laufende Rückläufigkeiten.
@@ -57,13 +57,13 @@ export function MoonWidget() {
   return (
     <>
       <iframe
-        src="https://nohemia.com/fr/widgets/lune/clair-m/"
+        src="https://nohemia.com/en/widgets/lune/clair-m/"
         width={300} height={210} loading="lazy"
         title="Calendrier lunaire"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
       </p>
     </>
   )
@@ -73,7 +73,7 @@ export function MoonWidget() {
 ### Vue
 ```vue
 <template>
-  <iframe src="https://nohemia.com/fr/widgets/ciel/sombre-m/"
+  <iframe src="https://nohemia.com/en/widgets/ciel/sombre-m/"
           width="300" height="200" loading="lazy" title="Le ciel du jour"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
@@ -112,7 +112,7 @@ Attribute: `type` (`lune` | `ciel`), `theme` (`clair` | `sombre`), `size` (`s` |
 
 ## Daten & Aktualität
 
-Nichts wird von Hand eingetragen. Phasen, Tierkreiszeichen und Zeiten stammen aus einer echten astronomischen Ephemeride ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT) und werden jede Nacht neu berechnet. Die Zeiten sind in Europe/Paris angegeben, auf die Minute genau. Dieselben Daten speisen auch den vollständigen [Mondkalender auf nohemia.com](https://nohemia.com/fr/lune/calendrier-pleines-lunes/).
+Nichts wird von Hand eingetragen. Phasen, Tierkreiszeichen und Zeiten stammen aus einer echten astronomischen Ephemeride ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT) und werden jede Nacht neu berechnet. Die Zeiten sind in Europe/Paris angegeben, auf die Minute genau. Dieselben Daten speisen auch den vollständigen [Mondkalender auf nohemia.com](https://nohemia.com/en/lune/calendrier-pleines-lunes/).
 
 Du kannst auch das rohe JSON auslesen, wenn du dir etwas Eigenes bauen möchtest:
 `https://nohemia.com/widgets/lune/data.json` (heutige Phase, nächster Voll- und Neumond, die zehn kommenden Lunationen).
@@ -131,10 +131,10 @@ Du kannst auch das rohe JSON auslesen, wenn du dir etwas Eigenes bauen möchtest
 
 ## Links
 
-- Website: [nohemia.com](https://nohemia.com/fr/) · Widget-Galerie: [nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)
-- Autorin: [Jade Nohemia](https://nohemia.com/fr/auteur/jade/)
+- Website: [nohemia.com](https://nohemia.com/en/) · Widget-Galerie: [nohemia.com/en/widgets](https://nohemia.com/en/widgets/)
+- Autorin: [Jade Nohemia](https://nohemia.com/en/auteur/jade/)
 - Issues & Ideen: [github.com/jadenohemia/nohemia-widgets/issues](https://github.com/jadenohemia/nohemia-widgets/issues)
 
 ## Lizenz
 
-[MIT](./LICENSE) © Jade Nohemia / Nohemia. Überall einsetzbar, auch kommerziell. Ein Backlink zu [nohemia.com](https://nohemia.com/fr/) freut uns, ist aber niemals Pflicht.
+[MIT](./LICENSE) © Jade Nohemia / Nohemia. Überall einsetzbar, auch kommerziell. Ein Backlink zu [nohemia.com](https://nohemia.com/en/) freut uns, ist aber niemals Pflicht.

@@ -12,10 +12,10 @@
  *   theme  "clair" | "sombre"         (default "clair")
  *   size   "s" | "m"                  (default "m")
  *
- * MIT © Jade Nohemia / Nohemia - https://nohemia.com/fr/widgets/
+ * MIT © Jade Nohemia / Nohemia - https://nohemia.com/en/widgets/
  */
 
-const BASE = 'https://nohemia.com/fr/widgets'
+const BASE = 'https://nohemia.com/en/widgets'
 
 // Pixel dimensions per type and size, matching the official widget pages.
 const DIMS = {

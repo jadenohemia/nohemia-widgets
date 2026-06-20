@@ -4,8 +4,8 @@
 
 **Her web sitesine eklenebilen ücretsiz astroloji ve ay widget'ları.** Gerçek efemeris verisi, her gece yenilenir, hesap yok, takip yok, JavaScript gerektirmez. Tek satır HTML yapıştırın, işte bu kadar.
 
-[Jade Nohemia](https://nohemia.com/fr/auteur/jade/) tarafından **[nohemia.com](https://nohemia.com/fr/)** üzerinde geliştirilir ve bakımı yapılır.
-Galeri ve canlı önizlemeler: **[nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)**.
+[Jade Nohemia](https://nohemia.com/en/auteur/jade/) tarafından **[nohemia.com](https://nohemia.com/en/)** üzerinde geliştirilir ve bakımı yapılır.
+Galeri ve canlı önizlemeler: **[nohemia.com/en/widgets](https://nohemia.com/en/widgets/)**.
 
 > Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
 > soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
@@ -18,11 +18,11 @@ Bunu sayfanızda herhangi bir yere yapıştırın. HTML kabul eden her sitede ç
 Webflow, Ghost, Shopify, statik bir sayfa...).
 
 ```html
-<iframe src="https://nohemia.com/fr/widgets/lune/clair-m/"
+<iframe src="https://nohemia.com/en/widgets/lune/clair-m/"
         width="300" height="210" loading="lazy"
         title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
 </p>
 ```
 
@@ -41,7 +41,7 @@ widget yine tıpatıp aynı şekilde çalışır.
 Her `type`, iki temayla (`clair` / `sombre`) ve iki boyutla (`s` / `m`) gelir. URL kalıbı şudur:
 
 ```
-https://nohemia.com/fr/widgets/{type}/{theme}-{size}/
+https://nohemia.com/en/widgets/{type}/{theme}-{size}/
 ```
 
 Daha fazla widget yolda: dolunaya geri sayım, burca göre günlük burç yorumu, süregelen retrolar.
@@ -60,13 +60,13 @@ export function MoonWidget() {
   return (
     <>
       <iframe
-        src="https://nohemia.com/fr/widgets/lune/clair-m/"
+        src="https://nohemia.com/en/widgets/lune/clair-m/"
         width={300} height={210} loading="lazy"
         title="Calendrier lunaire"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
       </p>
     </>
   )
@@ -76,7 +76,7 @@ export function MoonWidget() {
 ### Vue
 ```vue
 <template>
-  <iframe src="https://nohemia.com/fr/widgets/ciel/sombre-m/"
+  <iframe src="https://nohemia.com/en/widgets/ciel/sombre-m/"
           width="300" height="200" loading="lazy" title="Le ciel du jour"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
@@ -119,7 +119,7 @@ yalnızca resmi iframe'i işler, dolayısıyla veri ve görünüm nohemia.com il
 Hiçbir şey elle girilmez. Evreler, burçlar ve saatler gerçek bir astronomik efemeristen gelir
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT) ve her gece yeniden hesaplanır. Saatler
 Europe/Paris saat dilimine göre, dakikası dakikasına verilir. Aynı veri, nohemia.com'daki tam
-[ay takvimini](https://nohemia.com/fr/lune/calendrier-pleines-lunes/) de besler.
+[ay takvimini](https://nohemia.com/en/lune/calendrier-pleines-lunes/) de besler.
 
 Kendi widget'ınızı oluşturmak isterseniz ham JSON'u da okuyabilirsiniz:
 `https://nohemia.com/widgets/lune/data.json` (bugünkü evre, sonraki dolunay ve yeniay, yaklaşan on lunasyon).
@@ -138,10 +138,10 @@ Kendi widget'ınızı oluşturmak isterseniz ham JSON'u da okuyabilirsiniz:
 
 ## Bağlantılar
 
-- Site: [nohemia.com](https://nohemia.com/fr/) · Widget galerisi: [nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)
-- Yazar: [Jade Nohemia](https://nohemia.com/fr/auteur/jade/)
+- Site: [nohemia.com](https://nohemia.com/en/) · Widget galerisi: [nohemia.com/en/widgets](https://nohemia.com/en/widgets/)
+- Yazar: [Jade Nohemia](https://nohemia.com/en/auteur/jade/)
 - Sorunlar ve fikirler: [github.com/jadenohemia/nohemia-widgets/issues](https://github.com/jadenohemia/nohemia-widgets/issues)
 
 ## Lisans
 
-[MIT](./LICENSE) © Jade Nohemia / Nohemia. İster ticari olsun, her yerde kullanın. [nohemia.com](https://nohemia.com/fr/) adresine geri bağlantı verirseniz seviniriz ama bu asla zorunlu değildir.
+[MIT](./LICENSE) © Jade Nohemia / Nohemia. İster ticari olsun, her yerde kullanın. [nohemia.com](https://nohemia.com/en/) adresine geri bağlantı verirseniz seviniriz ama bu asla zorunlu değildir.

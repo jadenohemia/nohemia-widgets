@@ -5,8 +5,8 @@
 **Widgets gratuitos e integrables de astrología y luna para cualquier web.** Datos de efemérides reales, actualizados cada
 noche, sin cuenta, sin rastreo y sin necesidad de JavaScript. Pega una línea de HTML y listo.
 
-Creado y mantenido por [Jade Nohemia](https://nohemia.com/fr/auteur/jade/) en **[nohemia.com](https://nohemia.com/fr/)**.
-Galería y vistas previas en directo: **[nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)**.
+Creado y mantenido por [Jade Nohemia](https://nohemia.com/en/auteur/jade/) en **[nohemia.com](https://nohemia.com/en/)**.
+Galería y vistas previas en directo: **[nohemia.com/en/widgets](https://nohemia.com/en/widgets/)**.
 
 > Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
 > soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
@@ -19,11 +19,11 @@ Pega esto en cualquier parte de tu página. Funciona en cualquier sitio que admi
 Webflow, Ghost, Shopify, una página estática...).
 
 ```html
-<iframe src="https://nohemia.com/fr/widgets/lune/clair-m/"
+<iframe src="https://nohemia.com/en/widgets/lune/clair-m/"
         width="300" height="210" loading="lazy"
         title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
 </p>
 ```
 
@@ -42,7 +42,7 @@ widget seguirá funcionando exactamente igual.
 Cada `type` viene en dos temas (`clair` / `sombre`) y dos tamaños (`s` / `m`). El patrón de la URL es:
 
 ```
-https://nohemia.com/fr/widgets/{type}/{theme}-{size}/
+https://nohemia.com/en/widgets/{type}/{theme}-{size}/
 ```
 
 Pronto llegarán más widgets: cuenta atrás para la luna llena, horóscopo diario por signo y retrógrados en curso.
@@ -61,13 +61,13 @@ export function MoonWidget() {
   return (
     <>
       <iframe
-        src="https://nohemia.com/fr/widgets/lune/clair-m/"
+        src="https://nohemia.com/en/widgets/lune/clair-m/"
         width={300} height={210} loading="lazy"
         title="Calendrier lunaire"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/fr/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/en/lune/" rel="nofollow">Calendrier lunaire par Nohemia</a>
       </p>
     </>
   )
@@ -77,7 +77,7 @@ export function MoonWidget() {
 ### Vue
 ```vue
 <template>
-  <iframe src="https://nohemia.com/fr/widgets/ciel/sombre-m/"
+  <iframe src="https://nohemia.com/en/widgets/ciel/sombre-m/"
           width="300" height="200" loading="lazy" title="Le ciel du jour"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
@@ -120,7 +120,7 @@ se limita a renderizar el iframe oficial, así que los datos y el estilo se mant
 Nada está escrito a mano. Las fases, los signos y las horas provienen de una efeméride astronómica real
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculada cada noche. Las horas se
 indican en Europe/Paris, al minuto. Los mismos datos alimentan el
-[calendario lunar completo en nohemia.com](https://nohemia.com/fr/lune/calendrier-pleines-lunes/).
+[calendario lunar completo en nohemia.com](https://nohemia.com/en/lune/calendrier-pleines-lunes/).
 
 También puedes leer el JSON en bruto si quieres crear el tuyo propio:
 `https://nohemia.com/widgets/lune/data.json` (la fase de hoy, la próxima luna llena y luna nueva, y las diez próximas lunaciones).
@@ -139,11 +139,11 @@ También puedes leer el JSON en bruto si quieres crear el tuyo propio:
 
 ## Enlaces
 
-- Sitio: [nohemia.com](https://nohemia.com/fr/) · Galería de widgets: [nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)
-- Autora: [Jade Nohemia](https://nohemia.com/fr/auteur/jade/)
+- Sitio: [nohemia.com](https://nohemia.com/en/) · Galería de widgets: [nohemia.com/en/widgets](https://nohemia.com/en/widgets/)
+- Autora: [Jade Nohemia](https://nohemia.com/en/auteur/jade/)
 - Incidencias e ideas: [github.com/jadenohemia/nohemia-widgets/issues](https://github.com/jadenohemia/nohemia-widgets/issues)
 
 ## Licencia
 
 [MIT](./LICENSE) © Jade Nohemia / Nohemia. Úsalos donde quieras, incluso con fines comerciales. Un enlace de vuelta a
-[nohemia.com](https://nohemia.com/fr/) se agradece, pero nunca es obligatorio.
+[nohemia.com](https://nohemia.com/en/) se agradece, pero nunca es obligatorio.

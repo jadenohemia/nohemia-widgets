@@ -1,6 +1,6 @@
 {
   "name": "@nohemia/widgets",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Free, embeddable astrology & moon widgets. Real ephemeris, refreshed nightly, no account, no tracking.",
   "type": "module",
   "main": "./src/nohemia-widget.js",
@@ -31,7 +31,7 @@
     "ephemeris",
     "nohemia"
   ],
-  "homepage": "https://nohemia.com/fr/widgets/",
+  "homepage": "https://nohemia.com/en/widgets/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jadenohemia/nohemia-widgets.git"
