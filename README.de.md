@@ -7,8 +7,6 @@
 Erstellt und gepflegt von [Jade Nohemia](https://nohemia.com/de/auteur/jade/) auf **[nohemia.com](https://nohemia.com/de/)**.
 Galerie und Live-Vorschauen: **[nohemia.com/de/widgets](https://nohemia.com/de/widgets/)**.
 
-> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
-> soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
 
 ---
 
@@ -19,9 +17,9 @@ Füge das einfach irgendwo auf deiner Seite ein. Es funktioniert auf jeder Websi
 ```html
 <iframe src="https://nohemia.com/de/widgets/mond/hell-m/"
         width="300" height="210" loading="lazy"
-        title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
+        title="Mondkalender" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/de/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/de/" rel="nofollow">Mondkalender von Nohemia</a>
 </p>
 ```
 
@@ -59,11 +57,11 @@ export function MoonWidget() {
       <iframe
         src="https://nohemia.com/de/widgets/mond/hell-m/"
         width={300} height={210} loading="lazy"
-        title="Calendrier lunaire"
+        title="Mondkalender"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/de/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/de/" rel="nofollow">Mondkalender von Nohemia</a>
       </p>
     </>
   )
@@ -74,7 +72,7 @@ export function MoonWidget() {
 ```vue
 <template>
   <iframe src="https://nohemia.com/de/widgets/himmel/dunkel-m/"
-          width="300" height="200" loading="lazy" title="Le ciel du jour"
+          width="300" height="200" loading="lazy" title="Himmel heute"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
 ```

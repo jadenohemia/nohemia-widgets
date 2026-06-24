@@ -7,8 +7,6 @@
 Creati e gestiti da [Jade Nohemia](https://nohemia.com/it/auteur/jade/) su **[nohemia.com](https://nohemia.com/it/)**.
 Galleria e anteprime dal vivo: **[nohemia.com/it/widgets](https://nohemia.com/it/widgets/)**.
 
-> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
-> soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
 
 ---
 
@@ -19,9 +17,9 @@ Incolla questo codice ovunque nella tua pagina. Funziona su qualsiasi sito che a
 ```html
 <iframe src="https://nohemia.com/it/widgets/luna/chiaro-m/"
         width="300" height="210" loading="lazy"
-        title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
+        title="Calendario lunare" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/it/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/it/" rel="nofollow">Calendario lunare di Nohemia</a>
 </p>
 ```
 
@@ -59,11 +57,11 @@ export function MoonWidget() {
       <iframe
         src="https://nohemia.com/it/widgets/luna/chiaro-m/"
         width={300} height={210} loading="lazy"
-        title="Calendrier lunaire"
+        title="Calendario lunare"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/it/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/it/" rel="nofollow">Calendario lunare di Nohemia</a>
       </p>
     </>
   )
@@ -74,7 +72,7 @@ export function MoonWidget() {
 ```vue
 <template>
   <iframe src="https://nohemia.com/it/widgets/cielo/scuro-m/"
-          width="300" height="200" loading="lazy" title="Le ciel du jour"
+          width="300" height="200" loading="lazy" title="Cielo di oggi"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
 ```

@@ -7,8 +7,6 @@
 [Jade Nohemia](https://nohemia.com/tr/auteur/jade/) tarafından **[nohemia.com](https://nohemia.com/tr/)** üzerinde geliştirilir ve bakımı yapılır.
 Galeri ve canlı önizlemeler: **[nohemia.com/tr/widgets](https://nohemia.com/tr/widgets/)**.
 
-> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
-> soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
 
 ---
 
@@ -20,9 +18,9 @@ Webflow, Ghost, Shopify, statik bir sayfa...).
 ```html
 <iframe src="https://nohemia.com/tr/widgets/ay/acik-m/"
         width="300" height="210" loading="lazy"
-        title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
+        title="Ay takvimi" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/tr/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/tr/" rel="nofollow">Nohemia'dan Ay takvimi</a>
 </p>
 ```
 
@@ -62,11 +60,11 @@ export function MoonWidget() {
       <iframe
         src="https://nohemia.com/tr/widgets/ay/acik-m/"
         width={300} height={210} loading="lazy"
-        title="Calendrier lunaire"
+        title="Ay takvimi"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/tr/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/tr/" rel="nofollow">Nohemia'dan Ay takvimi</a>
       </p>
     </>
   )
@@ -77,7 +75,7 @@ export function MoonWidget() {
 ```vue
 <template>
   <iframe src="https://nohemia.com/tr/widgets/gokyuzu/koyu-m/"
-          width="300" height="200" loading="lazy" title="Le ciel du jour"
+          width="300" height="200" loading="lazy" title="Bugünün gökyüzü"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
 ```

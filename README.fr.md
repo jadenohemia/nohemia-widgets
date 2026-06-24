@@ -7,8 +7,6 @@
 Conçus et entretenus par [Jade Nohemia](https://nohemia.com/fr/auteur/jade/) sur **[nohemia.com](https://nohemia.com/fr/)**.
 Galerie et aperçus en direct : **[nohemia.com/fr/widgets](https://nohemia.com/fr/widgets/)**.
 
-> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
-
 ---
 
 ## Démarrage rapide (HTML simple)

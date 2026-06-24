@@ -7,8 +7,6 @@
 [Jade Nohemia](https://nohemia.com/ja/auteur/jade/) が **[nohemia.com](https://nohemia.com/ja/)** で開発・運用しています。
 ギャラリーとライブプレビューはこちら：**[nohemia.com/ja/widgets](https://nohemia.com/ja/widgets/)**。
 
-> Des widgets d'astrologie gratuits pour ton site. La lune du jour, le ciel du moment : un petit cadre
-> soigné à coller en deux copier-coller, recalculé chaque nuit à partir d'une éphéméride réelle.
 
 ---
 
@@ -19,9 +17,9 @@
 ```html
 <iframe src="https://nohemia.com/ja/widgets/tsuki/light-m/"
         width="300" height="210" loading="lazy"
-        title="Calendrier lunaire" style="border:0;border-radius:12px;max-width:100%"></iframe>
+        title="月の暦" style="border:0;border-radius:12px;max-width:100%"></iframe>
 <p style="font:12px/1.4 system-ui,sans-serif;text-align:center;margin:6px 0 0">
-  <a href="https://nohemia.com/ja/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+  <a href="https://nohemia.com/ja/" rel="nofollow">Nohemia の月の暦</a>
 </p>
 ```
 
@@ -59,11 +57,11 @@ export function MoonWidget() {
       <iframe
         src="https://nohemia.com/ja/widgets/tsuki/light-m/"
         width={300} height={210} loading="lazy"
-        title="Calendrier lunaire"
+        title="月の暦"
         style={{ border: 0, borderRadius: 12, maxWidth: '100%' }}
       />
       <p style={{ font: '12px/1.4 system-ui, sans-serif', textAlign: 'center', margin: '6px 0 0' }}>
-        <a href="https://nohemia.com/ja/" rel="nofollow">Calendrier lunaire par Nohemia</a>
+        <a href="https://nohemia.com/ja/" rel="nofollow">Nohemia の月の暦</a>
       </p>
     </>
   )
@@ -74,7 +72,7 @@ export function MoonWidget() {
 ```vue
 <template>
   <iframe src="https://nohemia.com/ja/widgets/sora/dark-m/"
-          width="300" height="200" loading="lazy" title="Le ciel du jour"
+          width="300" height="200" loading="lazy" title="今日の空"
           style="border:0;border-radius:12px;max-width:100%" />
 </template>
 ```
