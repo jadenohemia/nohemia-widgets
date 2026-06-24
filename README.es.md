@@ -101,6 +101,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="es" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="es" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="es" tz="tokyo"></nohemia-widget>
 ```
 
 O cárgalo directamente desde un CDN, sin paso de compilación:
@@ -110,8 +111,24 @@ O cárgalo directamente desde un CDN, sin paso de compilación:
 <nohemia-widget type="moon" locale="es"></nohemia-widget>
 ```
 
-Atributos: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). El componente
-se limita a renderizar el iframe oficial, así que los datos y el estilo se mantienen sincronizados con nohemia.com.
+Atributos: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz` (solo para
+`moon`, ver más abajo). El componente se limita a renderizar el iframe oficial, así que los datos y el
+estilo se mantienen sincronizados con nohemia.com.
+
+### Zona horaria (`tz`)
+
+El widget de la luna muestra la hora de la próxima luna llena. De forma predeterminada se indica en la
+zona **Europe/Paris**. En el widget `moon` puedes cambiar ese reloj a otra ciudad con el atributo `tz`.
+Valores admitidos: `london`, `new-york`, `los-angeles`, `sao-paulo`, `istanbul`, `seoul`, `tokyo`. Si lo
+omites (o usas cualquier otro valor), se mantiene la hora de París, que es la predeterminada. No tiene
+ningún efecto en el widget `sky` (que no muestra ninguna hora).
+
+```html
+<nohemia-widget type="moon" locale="es" tz="tokyo"></nohemia-widget>
+```
+
+También puedes construir la URL a mano: añade el slug de la zona al segmento `{theme}-{size}`, por
+ejemplo `https://nohemia.com/es/widgets/luna/claro-m-tokyo/`.
 
 ---
 
@@ -119,7 +136,8 @@ se limita a renderizar el iframe oficial, así que los datos y el estilo se mant
 
 Nada está escrito a mano. Las fases, los signos y las horas provienen de una efeméride astronómica real
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculada cada noche. Las horas se
-indican en Europe/Paris, al minuto. Los mismos datos alimentan el
+indican en Europe/Paris de forma predeterminada, al minuto (el widget de la luna puede cambiar el reloj
+de la próxima luna llena a otra zona con el atributo `tz`). Los mismos datos alimentan el
 [calendario lunar completo en nohemia.com](https://nohemia.com/es/calendrier-pleines-lunes/).
 
 También puedes leer el JSON en bruto si quieres crear el tuyo propio:

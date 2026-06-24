@@ -100,6 +100,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="tr" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="tr" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="tr" tz="tokyo"></nohemia-widget>
 ```
 
 Ya da doğrudan bir CDN üzerinden yükleyin, derleme adımı yok:
@@ -109,8 +110,25 @@ Ya da doğrudan bir CDN üzerinden yükleyin, derleme adımı yok:
 <nohemia-widget type="moon" locale="tr"></nohemia-widget>
 ```
 
-Öznitelikler: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). Bileşen
-yalnızca resmi iframe'i işler, dolayısıyla veri ve görünüm nohemia.com ile eşzamanlı kalır.
+Öznitelikler: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz`
+(yalnızca moon, aşağıya bakın). Bileşen yalnızca resmi iframe'i işler, dolayısıyla veri ve görünüm
+nohemia.com ile eşzamanlı kalır.
+
+### Saat dilimi (`tz`)
+
+Ay widget'ı bir sonraki dolunayın saatini gösterir. Varsayılan olarak bu saat, ziyaretçiden
+bağımsız olan **Europe/Paris** dilimine göre verilir. `moon` widget'ında bu saati `tz`
+özniteliğiyle başka bir şehre geçirebilirsiniz. İzin verilen değerler: `london`, `new-york`,
+`los-angeles`, `sao-paulo`, `istanbul`, `seoul`, `tokyo`. Özniteliği yazmazsanız (ya da başka bir
+değer verirseniz) varsayılan Paris saati kullanılır. `sky` widget'ında hiçbir etkisi yoktur
+(bu widget saat göstermez).
+
+```html
+<nohemia-widget type="moon" locale="tr" tz="tokyo"></nohemia-widget>
+```
+
+URL'yi elle de kurabilirsiniz: dilim slug'ını `{theme}-{size}` parçasının sonuna ekleyin, örneğin
+`https://nohemia.com/tr/widgets/ay/acik-m-tokyo/`.
 
 ---
 
@@ -118,7 +136,8 @@ yalnızca resmi iframe'i işler, dolayısıyla veri ve görünüm nohemia.com il
 
 Hiçbir şey elle girilmez. Evreler, burçlar ve saatler gerçek bir astronomik efemeristen gelir
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT) ve her gece yeniden hesaplanır. Saatler
-Europe/Paris saat dilimine göre, dakikası dakikasına verilir. Aynı veri, nohemia.com'daki tam
+varsayılan olarak Europe/Paris saat dilimine göre, dakikası dakikasına verilir (ay widget'ı bir sonraki
+dolunay saatini `tz` özniteliğiyle başka bir dilime geçirebilir). Aynı veri, nohemia.com'daki tam
 [ay takvimini](https://nohemia.com/tr/calendrier-pleines-lunes/) de besler.
 
 Kendi widget'ınızı oluşturmak isterseniz ham JSON'u da okuyabilirsiniz:

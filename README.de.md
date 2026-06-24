@@ -97,6 +97,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="de" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="de" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="de" tz="tokyo"></nohemia-widget>
 ```
 
 Oder lade sie direkt von einem CDN, ganz ohne Build-Schritt:
@@ -106,13 +107,23 @@ Oder lade sie direkt von einem CDN, ganz ohne Build-Schritt:
 <nohemia-widget type="moon" locale="de"></nohemia-widget>
 ```
 
-Attribute: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). Die Komponente rendert lediglich das offizielle iframe, sodass Daten und Gestaltung stets mit nohemia.com synchron bleiben.
+Attribute: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz` (nur `moon`, siehe unten). Die Komponente rendert lediglich das offizielle iframe, sodass Daten und Gestaltung stets mit nohemia.com synchron bleiben.
+
+### Zeitzone (`tz`)
+
+Das Mond-Widget zeigt den Zeitpunkt des nächsten Vollmonds. Standardmäßig wird er in der Zeitzone **Europe/Paris** angegeben. Beim `moon`-Widget kannst du diese Uhrzeit mit dem Attribut `tz` auf eine andere Stadt umstellen. Erlaubte Werte: `london`, `new-york`, `los-angeles`, `sao-paulo`, `istanbul`, `seoul`, `tokyo`. Lässt du das Attribut weg (oder gibst du einen anderen Wert an), gilt die Pariser Zeit als Standard. Auf das `sky`-Widget hat es keine Auswirkung (dieses zeigt keine Uhrzeit an).
+
+```html
+<nohemia-widget type="moon" locale="de" tz="tokyo"></nohemia-widget>
+```
+
+Du kannst die URL auch von Hand bauen: Hänge den Zonen-Slug an das Segment `{theme}-{size}` an, z. B. `https://nohemia.com/de/widgets/mond/hell-m-tokyo/`.
 
 ---
 
 ## Daten & Aktualität
 
-Nichts wird von Hand eingetragen. Phasen, Tierkreiszeichen und Zeiten stammen aus einer echten astronomischen Ephemeride ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT) und werden jede Nacht neu berechnet. Die Zeiten sind in Europe/Paris angegeben, auf die Minute genau. Dieselben Daten speisen auch den vollständigen [Mondkalender auf nohemia.com](https://nohemia.com/de/calendrier-pleines-lunes/).
+Nichts wird von Hand eingetragen. Phasen, Tierkreiszeichen und Zeiten stammen aus einer echten astronomischen Ephemeride ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT) und werden jede Nacht neu berechnet. Die Zeiten sind standardmäßig in Europe/Paris angegeben, auf die Minute genau (beim Mond-Widget lässt sich die Uhrzeit des nächsten Vollmonds mit dem Attribut `tz` auf eine andere Zeitzone umstellen). Dieselben Daten speisen auch den vollständigen [Mondkalender auf nohemia.com](https://nohemia.com/de/calendrier-pleines-lunes/).
 
 Du kannst auch das rohe JSON auslesen, wenn du dir etwas Eigenes bauen möchtest:
 `https://nohemia.com/widgets/lune/data.json` (heutige Phase, nächster Voll- und Neumond, die zehn kommenden Lunationen).

@@ -101,6 +101,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="pt" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="pt" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="pt" tz="tokyo"></nohemia-widget>
 ```
 
 Ou carregue direto de um CDN, sem nenhuma etapa de build:
@@ -110,8 +111,23 @@ Ou carregue direto de um CDN, sem nenhuma etapa de build:
 <nohemia-widget type="moon" locale="pt"></nohemia-widget>
 ```
 
-Atributos: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). O componente
-apenas renderiza o iframe oficial, então os dados e o estilo permanecem sincronizados com o nohemia.com.
+Atributos: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz` (só para o `moon`, veja
+abaixo). O componente apenas renderiza o iframe oficial, então os dados e o estilo permanecem sincronizados com o
+nohemia.com.
+
+### Fuso horário (`tz`)
+
+O widget da lua mostra o horário da próxima lua cheia. Por padrão, ele é exibido no fuso **Europe/Paris**. No widget
+`moon`, você pode trocar esse relógio por outra cidade com o atributo `tz`. Valores permitidos: `london`, `new-york`,
+`los-angeles`, `sao-paulo`, `istanbul`, `seoul`, `tokyo`. Deixe-o de fora (ou use qualquer outro valor) para manter o
+horário padrão de Paris. Ele não tem nenhum efeito no widget `sky` (que não exibe horário).
+
+```html
+<nohemia-widget type="moon" locale="pt" tz="tokyo"></nohemia-widget>
+```
+
+Montar a URL na mão também funciona: basta acrescentar o slug do fuso ao segmento `{theme}-{size}`, por exemplo
+`https://nohemia.com/pt/widgets/lua/claro-m-tokyo/`.
 
 ---
 
@@ -119,7 +135,8 @@ apenas renderiza o iframe oficial, então os dados e o estilo permanecem sincron
 
 Nada é digitado à mão. Fases, signos e horários vêm de uma efeméride astronômica real
 ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculada toda noite. Os horários são
-dados em Europe/Paris, com precisão de minuto. Os mesmos dados alimentam o
+dados em Europe/Paris por padrão, com precisão de minuto (o widget da lua pode trocar o relógio da próxima lua cheia
+para outro fuso com o atributo `tz`). Os mesmos dados alimentam o
 [calendário lunar completo no nohemia.com](https://nohemia.com/pt/calendrier-pleines-lunes/).
 
 Você também pode ler o JSON bruto se quiser construir o seu próprio:

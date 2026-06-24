@@ -97,6 +97,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="pl" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="pl" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="pl" tz="tokyo"></nohemia-widget>
 ```
 
 Albo wczytaj go prosto z CDN, bez etapu budowania:
@@ -106,13 +107,23 @@ Albo wczytaj go prosto z CDN, bez etapu budowania:
 <nohemia-widget type="moon" locale="pl"></nohemia-widget>
 ```
 
-Atrybuty: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). Komponent po prostu renderuje oficjalny iframe, więc dane i stylizacja pozostają zsynchronizowane z nohemia.com.
+Atrybuty: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz` (tylko `moon`, patrz niżej). Komponent po prostu renderuje oficjalny iframe, więc dane i stylizacja pozostają zsynchronizowane z nohemia.com.
+
+### Strefa czasowa (`tz`)
+
+Widżet księżyca pokazuje godzinę najbliższej pełni. Domyślnie podajemy ją w strefie **Europe/Paris**. W widżecie `moon` możesz przestawić ten zegar na inne miasto za pomocą atrybutu `tz`. Dozwolone wartości: `london`, `new-york`, `los-angeles`, `sao-paulo`, `istanbul`, `seoul`, `tokyo`. Pominięcie atrybutu (lub dowolna inna wartość) zostawia domyślny czas paryski. Atrybut nie ma żadnego wpływu na widżet `sky` (który nie pokazuje godziny).
+
+```html
+<nohemia-widget type="moon" locale="pl" tz="tokyo"></nohemia-widget>
+```
+
+Działa to też przy ręcznym budowaniu adresu URL: dopisz fragment strefy do segmentu `{theme}-{size}`, na przykład `https://nohemia.com/pl/widgets/ksiezyc/jasny-m-tokyo/`.
 
 ---
 
 ## Dane i świeżość
 
-Nic nie jest wpisywane ręcznie. Fazy, znaki i godziny pochodzą z prawdziwej efemerydy astronomicznej ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), przeliczanej co noc. Godziny podawane są w strefie Europe/Paris, co do minuty. Te same dane zasilają pełny [kalendarz księżycowy na nohemia.com](https://nohemia.com/pl/calendrier-pleines-lunes/).
+Nic nie jest wpisywane ręcznie. Fazy, znaki i godziny pochodzą z prawdziwej efemerydy astronomicznej ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), przeliczanej co noc. Godziny podawane są domyślnie w strefie Europe/Paris, co do minuty (w widżecie księżyca zegar najbliższej pełni można przestawić na inną strefę za pomocą atrybutu `tz`). Te same dane zasilają pełny [kalendarz księżycowy na nohemia.com](https://nohemia.com/pl/calendrier-pleines-lunes/).
 
 Możesz też odczytać surowy JSON, jeśli chcesz zbudować coś własnego:
 `https://nohemia.com/widgets/lune/data.json` (dzisiejsza faza, najbliższa pełnia i nów, dziesięć nadchodzących lunacji).

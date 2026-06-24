@@ -1,6 +1,6 @@
 {
   "name": "@nohemia/widgets",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Free, embeddable astrology & moon widgets. Real ephemeris, refreshed nightly, no account, no tracking.",
   "type": "module",
   "main": "./src/nohemia-widget.js",

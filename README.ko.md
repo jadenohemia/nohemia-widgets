@@ -97,6 +97,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="ko" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="ko" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="ko" tz="tokyo"></nohemia-widget>
 ```
 
 또는 빌드 과정 없이 CDN에서 바로 불러올 수도 있습니다.
@@ -106,13 +107,23 @@ npm i @nohemia/widgets
 <nohemia-widget type="moon" locale="ko"></nohemia-widget>
 ```
 
-속성: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). 이 컴포넌트는 공식 iframe을 그대로 렌더링하므로, 데이터와 스타일이 nohemia.com과 항상 일치합니다.
+속성: `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz` (`moon` 위젯 전용, 아래 참고). 이 컴포넌트는 공식 iframe을 그대로 렌더링하므로, 데이터와 스타일이 nohemia.com과 항상 일치합니다.
+
+### 시간대 (`tz`)
+
+`moon` 위젯은 다음 보름달의 시각을 보여 줍니다. 기본값은 **Europe/Paris** 시간대입니다. `moon` 위젯에서는 `tz` 속성으로 이 시계를 다른 도시 기준으로 바꿀 수 있습니다. 사용할 수 있는 값은 `london`(런던), `new-york`(뉴욕), `los-angeles`(로스앤젤레스), `sao-paulo`(상파울루), `istanbul`(이스탄불), `seoul`(서울), `tokyo`(도쿄)입니다. 속성을 생략하거나 그 밖의 값을 넣으면 기본값인 파리 시각으로 표시됩니다. `sky` 위젯에는 아무 영향이 없습니다(시각을 표시하지 않기 때문입니다).
+
+```html
+<nohemia-widget type="moon" locale="ko" tz="tokyo"></nohemia-widget>
+```
+
+URL을 직접 만들 때도 사용할 수 있습니다. `{theme}-{size}` 부분 뒤에 시간대 슬러그를 덧붙이면 됩니다. 예: `https://nohemia.com/ko/widgets/dal/light-m-tokyo/`.
 
 ---
 
 ## Data & freshness
 
-손으로 입력하는 값은 하나도 없습니다. 위상, 별자리, 시각은 실제 천문력([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT)에서 가져오며, 매일 밤 다시 계산됩니다. 시각은 Europe/Paris 기준으로 분 단위까지 제공됩니다. 동일한 데이터가 [nohemia.com의 음력 달력](https://nohemia.com/ko/calendrier-pleines-lunes/) 전체를 구동합니다.
+손으로 입력하는 값은 하나도 없습니다. 위상, 별자리, 시각은 실제 천문력([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT)에서 가져오며, 매일 밤 다시 계산됩니다. 시각은 기본적으로 Europe/Paris 기준으로 분 단위까지 제공됩니다(`moon` 위젯은 `tz` 속성으로 다음 보름달 시계를 다른 시간대로 바꿀 수 있습니다). 동일한 데이터가 [nohemia.com의 음력 달력](https://nohemia.com/ko/calendrier-pleines-lunes/) 전체를 구동합니다.
 
 직접 무언가를 만들고 싶다면 원본 JSON도 읽을 수 있습니다.
 `https://nohemia.com/widgets/lune/data.json` (오늘의 위상, 다음 보름달과 그믐달, 다가오는 열 번의 삭망월).

@@ -96,6 +96,7 @@ npm i @nohemia/widgets
 
 <nohemia-widget type="moon" locale="fr" theme="light" size="m"></nohemia-widget>
 <nohemia-widget type="sky" locale="fr" theme="dark" size="s"></nohemia-widget>
+<nohemia-widget type="moon" locale="fr" tz="tokyo"></nohemia-widget>
 ```
 
 Ou chargez-le directement depuis un CDN, sans étape de build :
@@ -105,13 +106,23 @@ Ou chargez-le directement depuis un CDN, sans étape de build :
 <nohemia-widget type="moon" locale="fr"></nohemia-widget>
 ```
 
-Attributs : `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`). Le composant se contente d'afficher l'iframe officielle : les données et le style restent donc synchronisés avec nohemia.com.
+Attributs : `type` (`moon` | `sky`), `theme` (`light` | `dark`), `size` (`s` | `m`), `tz` (widget lune uniquement, voir plus bas). Le composant se contente d'afficher l'iframe officielle : les données et le style restent donc synchronisés avec nohemia.com.
+
+### Fuseau horaire (`tz`)
+
+Le widget lune indique l'heure de la prochaine pleine lune. Par défaut, elle est donnée dans le fuseau **Europe/Paris**. Sur le widget `moon`, vous pouvez basculer cette horloge vers une autre ville grâce à l'attribut `tz`. Valeurs autorisées : `london`, `new-york`, `los-angeles`, `sao-paulo`, `istanbul`, `seoul`, `tokyo`. Laissez-le de côté (ou indiquez n'importe quelle autre valeur) pour conserver l'heure de Paris par défaut. Il n'a aucun effet sur le widget `sky`, qui n'affiche pas d'heure.
+
+```html
+<nohemia-widget type="moon" locale="fr" tz="tokyo"></nohemia-widget>
+```
+
+En construisant l'URL à la main, le résultat est le même : ajoutez le slug du fuseau au segment `{theme}-{size}`, par exemple `https://nohemia.com/fr/widgets/lune/clair-m-tokyo/`.
 
 ---
 
 ## Données et fraîcheur
 
-Rien n'est saisi à la main. Les phases, les signes et les horaires proviennent d'une véritable éphéméride astronomique ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculée chaque nuit. Les horaires sont donnés en Europe/Paris, à la minute près. Ces mêmes données alimentent l'intégralité du [calendrier lunaire sur nohemia.com](https://nohemia.com/fr/calendrier-pleines-lunes/).
+Rien n'est saisi à la main. Les phases, les signes et les horaires proviennent d'une véritable éphéméride astronomique ([astronomy-engine](https://github.com/cosinekitty/astronomy), MIT), recalculée chaque nuit. Les horaires sont donnés en Europe/Paris par défaut, à la minute près (le widget lune peut basculer l'horloge de la prochaine pleine lune vers un autre fuseau grâce à l'attribut `tz`). Ces mêmes données alimentent l'intégralité du [calendrier lunaire sur nohemia.com](https://nohemia.com/fr/calendrier-pleines-lunes/).
 
 Vous pouvez aussi lire le JSON brut si vous voulez construire le vôtre :
 `https://nohemia.com/widgets/lune/data.json` (la phase du jour, les prochaines pleine et nouvelle lunes, et les dix prochaines lunaisons).

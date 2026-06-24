@@ -12,6 +12,9 @@
  *   locale  "en"|"fr"|"pt"|"es"|"it"|"de"|"pl"|"ko"|"ja"|"tr" (default "en")
  *   theme   "light" | "dark"                                  (default "light")
  *   size    "s" | "m"                                         (default "m")
+ *   tz      "london"|"new-york"|"los-angeles"|"sao-paulo"|"istanbul"|"seoul"|"tokyo"
+ *           (moon only; absent/empty = default Europe/Paris). Sets the time zone of the
+ *           "next full moon" clock. Invalid values are ignored (fall back to Paris).
  *
  * The slug and theme word in the URL are localized for SEO (e.g. /de/widgets/mond/hell-m/),
  * but you always pass the canonical English keys above - the component maps them per locale.
@@ -41,6 +44,9 @@ const DIMS = {
 const TYPE_ALIAS = { lune: 'moon', ciel: 'sky' }
 const THEME_ALIAS = { clair: 'light', sombre: 'dark' }
 const LOCALES = ['en', 'fr', 'pt', 'es', 'it', 'de', 'pl', 'ko', 'ja', 'tr']
+// Optional time-zone suffix for the moon widget (the "next full moon" clock). Default
+// (Europe/Paris) = no suffix. Only these 7 non-default zones are accepted; anything else is ignored.
+const TZ_SLUGS = ['london', 'new-york', 'los-angeles', 'sao-paulo', 'istanbul', 'seoul', 'tokyo']
 
 class NohemiaWidget extends HTMLElement {
   connectedCallback() {
@@ -61,8 +67,13 @@ class NohemiaWidget extends HTMLElement {
     const slug = SLUG[type][locale]
     const themeWord = THEME[theme][locale]
 
+    // Optional time zone, moon only. Invalid/absent values fall back to the default (no suffix).
+    let tz = (this.getAttribute('tz') || '').toLowerCase()
+    if (type !== 'moon' || TZ_SLUGS.indexOf(tz) === -1) tz = ''
+    const variant = tz ? `${themeWord}-${size}-${tz}` : `${themeWord}-${size}`
+
     const iframe = document.createElement('iframe')
-    iframe.src = `${BASE}/${locale}/widgets/${slug}/${themeWord}-${size}/`
+    iframe.src = `${BASE}/${locale}/widgets/${slug}/${variant}/`
     iframe.width = String(w)
     iframe.height = String(h)
     iframe.loading = 'lazy'
